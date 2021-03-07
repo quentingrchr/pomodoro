@@ -1,0 +1,20 @@
+{
+  "steps_data": [
+    {
+      "name": "pomodero",
+      "duration": 1500,
+      "title": "pomodero"
+    },
+    {
+      "name": "short_break",
+      "duration": 300,
+      "title": "short break"
+    },
+    {
+      "name": "long_break",
+      "duration": 1200,
+      "title": "long break"
+    }
+  ],
+  "long_break_gap": 3
+}
