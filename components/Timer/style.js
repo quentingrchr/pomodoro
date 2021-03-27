@@ -60,7 +60,7 @@ export const CircularProgressBarContainer = styled.div`
   }
 
   .circle-progress {
-    stroke: ${(p) => p.theme.colorPrimary};
+    stroke: ${(p) => p.theme.colorPrimary[p.selectedColor]};
     stroke-linecap: round;
     stroke-linejoin: round;
   }

@@ -2,17 +2,17 @@
   "steps_data": [
     {
       "name": "pomodero",
-      "duration": 1500,
+      "duration": 1,
       "title": "pomodero"
     },
     {
       "name": "short_break",
-      "duration": 300,
+      "duration": 2,
       "title": "short break"
     },
     {
       "name": "long_break",
-      "duration": 1200,
+      "duration": 3,
       "title": "long break"
     }
   ],

@@ -31,7 +31,6 @@ export default function usePomodero() {
       }
     }
   }
-  console.log([state, onEnd]);
 
   return [state, onEnd];
 }

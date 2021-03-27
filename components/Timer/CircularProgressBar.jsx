@@ -1,7 +1,11 @@
-// Circular Progress Bar Componen
+// Circular Progress Bar Component
+import { useContext } from "react";
 import { CircularProgressBarContainer } from "./style";
+import { SelectedColorContext } from "../../context/selectedColorContext";
 
 export default function CircularProgressBar(props) {
+  const [selectedColor] = useContext(SelectedColorContext);
+
   const sqSize = props.sqSize;
   const radius = (props.sqSize - props.strokeWidth) / 2;
   const viewBox = `0 0 ${sqSize} ${sqSize}`;
@@ -9,7 +13,7 @@ export default function CircularProgressBar(props) {
   const dashOffset = dashArray - (dashArray * props.percentage) / 100;
 
   return (
-    <CircularProgressBarContainer>
+    <CircularProgressBarContainer selectedColor={selectedColor}>
       <svg width={props.sqSize} height={props.sqSize} viewBox={viewBox}>
         <circle
           className="circle-background"
