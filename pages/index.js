@@ -6,9 +6,13 @@ import { useState, useEffect } from "react";
 import GlobalStyle from "./style/global-style";
 
 import Timer from "../components/Timer";
+import Steps from "../components/Steps";
+import Modal from "../components/Modal";
 
 import data from "../data/test.json";
-import usePomodero from "../hooks/usePomodero";
+import usePomodero from "../hooks/usePomodoro";
+import SettingsButton from "../components/SettingsButton";
+import SettingsWindow from "../components/SettingsWindow";
 
 const Main = styled.main`
   background-color: ${(p) => p.theme.bg};
@@ -21,56 +25,50 @@ const Main = styled.main`
   padding-top: 4rem;
 
   h1 {
-    font-size: 2.6rem;
+    font-size: 3rem;
     font-weight: bold;
     margin-bottom: 4rem;
+    font-family: ${(p) => p.theme.fontPrimary[p.selectedFont]};
+    font-weight: 700;
   }
 `;
 
-const Steps = styled.div`
-  background-color: ${(p) => p.theme.bgDark};
-  border-radius: 4rem;
-  padding: 1rem;
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 4rem;
-`;
-
-const Step = styled.button`
-  outline: none;
-  padding: 1.5rem 2.8rem;
-  background-color: ${(p) =>
-    p.active ? p.theme.colorPrimary : p.theme.bgDark};
-  border: none;
-  border-radius: 4rem;
-  color: ${(p) => (p.active ? p.theme.bgDark : p.theme.textGrey)};
-  font-weight: bold;
-`;
-
 export default function Home() {
+  // Pomodoro
   const [state, onEnd] = usePomodero();
-
   const [timer, setTimer] = useState(data.steps_data[state].duration);
+
+  //Popin
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   useEffect(() => {
     setTimer(data.steps_data[state].duration);
   }, [state]);
 
+  const toggleSettings = () => {
+    setIsSettingsOpen(!isSettingsOpen);
+  };
+
   return (
     <>
       <Head>
+        <link rel="stylesheet" href="https://use.typekit.net/tab1ylb.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
         <title>SSR styled-components with Next.js Starter</title>
       </Head>
-      <Main>
+      <Main selectedFont={0}>
         <GlobalStyle />
         <h1>pomodoro</h1>
-        <Steps>
-          {data.steps_data.map((step, i) => (
-            <Step key={step.name} active={i === state}>
-              {step.title}
-            </Step>
-          ))}
-        </Steps>
+        <Steps steps={data.steps_data} current={state} />
         <Countdown
           autoStart={false}
           zeroPadTime={3}
@@ -80,6 +78,10 @@ export default function Home() {
             return <Timer {...props} duration={timer} />;
           }}
         />
+        <SettingsButton onClick={toggleSettings} />
+        <Modal hidden={!isSettingsOpen}>
+          <SettingsWindow toggle={toggleSettings}></SettingsWindow>
+        </Modal>
       </Main>
     </>
   );

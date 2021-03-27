@@ -1,3 +1,3 @@
-import Editable from "./Timer.jsx";
+import Timer from "./component.jsx";
 
-export default Editable;
+export default Timer;
