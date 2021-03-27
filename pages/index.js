@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styled from "styled-components";
 import Countdown from "react-countdown";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import GlobalStyle from "../style/global-style";
 
@@ -13,6 +13,7 @@ import data from "../data/test.json";
 import usePomodero from "../hooks/usePomodoro";
 import SettingsButton from "../components/SettingsButton";
 import SettingsWindow from "../components/SettingsWindow";
+import { SelectedColorContext } from "../context/selectedColorContext";
 
 const Main = styled.main`
   background-color: ${(p) => p.theme.bg};

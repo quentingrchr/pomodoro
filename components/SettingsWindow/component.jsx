@@ -35,10 +35,8 @@ export default function SettingsWindow({ isOpen, toggle }) {
   });
 
   useEffect(() => {
-    updateValues("color", selectedColor);
-    updateValues("font", selectedFont);
-    updateValues("durations", durations);
-    console.log({ selectedColor });
+    console.log({ selectedColor }, "settings update");
+    console.log({ values });
   }, [selectedColor, selectedFont, durations]);
 
   const handleSubmit = (e) => {
