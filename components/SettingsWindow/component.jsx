@@ -17,7 +17,7 @@ import CheckMarkIcon from "../../icons/CheckMarkIcon";
 import FontSampleIcon from "../../icons/FontSampleIcon";
 import InputNumber from "../InputNumber";
 
-import { primaryColors, primaryFonts } from "../../pages/style/theme";
+import { primaryColors, primaryFonts } from "../../style/theme";
 import { SelectedColorContext } from "../../context/selectedColorContext";
 import { SelectedFontContext } from "../../context/selectedFontContext";
 import { DurationsContext } from "../../context/durationsContext";
