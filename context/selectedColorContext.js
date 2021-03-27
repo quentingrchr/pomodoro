@@ -3,8 +3,6 @@ import { useState, createContext, useEffect } from "react";
 export const SelectedColorContext = createContext(0);
 
 export const SelectedColorProvider = (props) => {
-  let localColor;
-
   const [selectedColor, setSelectedColor] = useState(0);
 
   useEffect(() => {
