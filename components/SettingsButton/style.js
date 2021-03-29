@@ -14,9 +14,19 @@ export const Button = styled.button`
   &:focus {
     outline: none;
   }
+
   svg  {
     path {
-      stroke: ${(p) => p.theme.bgSecondary};
+      stroke: ${(p) =>
+        p.isSettingsOpen ? p.theme.bgSecondary : p.theme.textGrey};
+    }
+  }
+
+  &:hover {
+    svg  {
+      path {
+        stroke: ${(p) => p.theme.bgSecondary};
+      }
     }
   }
 `;
