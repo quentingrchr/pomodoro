@@ -40,6 +40,7 @@ export const Controls = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     &:nth-child(1) {
       border-top-right-radius: 1rem;
     }

@@ -6,6 +6,9 @@ export const Window = styled.div`
   width: 45vw;
   border-radius: 25px;
   color: ${(p) => p.theme.bgDark};
+  button {
+    cursor: pointer;
+  }
 `;
 
 export const Header = styled.header`
@@ -14,9 +17,16 @@ export const Header = styled.header`
   align-items: center;
   border-bottom: 3px rgba(125, 125, 125, 0.1) solid;
   padding: 3rem 2.5rem;
+
   h2 {
     font-size: 2.6rem;
     font-weight: bold;
+  }
+  p {
+    color: red;
+    opacity: 0.7;
+    font-weight: bold;
+    font-size: 1.4rem;
   }
   button {
     background-color: transparent;
@@ -76,6 +86,9 @@ export const FormRow = styled.div`
   align-items: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  label {
+    cursor: pointer;
+  }
 `;
 
 export const RowLeft = styled.div`

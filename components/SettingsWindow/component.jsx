@@ -17,13 +17,13 @@ import CheckMarkIcon from "../../icons/CheckMarkIcon";
 import FontSampleIcon from "../../icons/FontSampleIcon";
 import InputNumber from "../InputNumber";
 
-import { primaryColors, primaryFonts } from "../../style/theme";
+import { primaryColors, primaryFonts } from "../../pages/style/theme";
 import { SelectedColorContext } from "../../context/selectedColorContext";
 import { SelectedFontContext } from "../../context/selectedFontContext";
 import { DurationsContext } from "../../context/durationsContext";
 import data from "../../data/data.json";
 
-export default function SettingsWindow({ isOpen, toggle }) {
+export default function SettingsWindow({ toggle }) {
   const [selectedColor, setSelectedColor] = useContext(SelectedColorContext);
   const [selectedFont, setSelectedFont] = useContext(SelectedFontContext);
 
@@ -77,6 +77,7 @@ export default function SettingsWindow({ isOpen, toggle }) {
     <Window>
       <Header>
         <h2>Settings</h2>
+        <p>"Apply" will reset the current pomodoro</p>
         <button onClick={toggle}>
           <CloseIcon />
         </button>

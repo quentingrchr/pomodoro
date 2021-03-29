@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Countdown from "react-countdown";
 import { useState, useEffect, useContext } from "react";
 
-import GlobalStyle from "../style/global-style";
+import GlobalStyle from "./style/global-style";
 
 import Timer from "../components/Timer";
 import Steps from "../components/Steps";
@@ -43,6 +43,7 @@ export default function Home() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   useEffect(() => {
+    console.log(state);
     setTimer(data.steps_data[state].duration);
   }, [state]);
 
@@ -64,7 +65,7 @@ export default function Home() {
           href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
-        <title>SSR styled-components with Next.js Starter</title>
+        <title>Pomodoro App</title>
       </Head>
       <Main selectedFont={0}>
         <GlobalStyle />
@@ -79,9 +80,15 @@ export default function Home() {
             return <Timer {...props} duration={timer} />;
           }}
         />
-        <SettingsButton onClick={toggleSettings} />
+        <SettingsButton
+          isSettingsOpen={isSettingsOpen}
+          onClick={toggleSettings}
+        />
         <Modal hidden={!isSettingsOpen}>
-          <SettingsWindow toggle={toggleSettings}></SettingsWindow>
+          <SettingsWindow
+            pomodoroStarted={true}
+            toggle={toggleSettings}
+          ></SettingsWindow>
         </Modal>
       </Main>
     </>
