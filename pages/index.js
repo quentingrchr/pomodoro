@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Countdown from "react-countdown";
 import { useState, useEffect, useContext } from "react";
 
-import GlobalStyle from "./style/global-style";
+import GlobalStyle from "../style/global-style";
 
 import Timer from "../components/Timer";
 import Steps from "../components/Steps";
