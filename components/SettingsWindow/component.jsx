@@ -23,7 +23,7 @@ import { SelectedFontContext } from "../../context/selectedFontContext";
 import { DurationsContext } from "../../context/durationsContext";
 import data from "../../data/data.json";
 
-export default function SettingsWindow({ isOpen, toggle }) {
+export default function SettingsWindow({ toggle }) {
   const [selectedColor, setSelectedColor] = useContext(SelectedColorContext);
   const [selectedFont, setSelectedFont] = useContext(SelectedFontContext);
 
@@ -35,10 +35,8 @@ export default function SettingsWindow({ isOpen, toggle }) {
   });
 
   useEffect(() => {
-    updateValues("color", selectedColor);
-    updateValues("font", selectedFont);
-    updateValues("durations", durations);
-    console.log({ selectedColor });
+    console.log({ selectedColor }, "settings update");
+    console.log({ values });
   }, [selectedColor, selectedFont, durations]);
 
   const handleSubmit = (e) => {
@@ -79,6 +77,7 @@ export default function SettingsWindow({ isOpen, toggle }) {
     <Window>
       <Header>
         <h2>Settings</h2>
+        <p>"Apply" will reset the current pomodoro</p>
         <button onClick={toggle}>
           <CloseIcon />
         </button>

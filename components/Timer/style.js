@@ -4,8 +4,8 @@ export const TimerContainer = styled.div`
   border-radius: 50%;
   background-color: ${(p) => p.theme.bgDark};
   padding: 2rem;
-  height: 400px;
-  width: 400px;
+  height: 40rem;
+  width: 40rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -13,6 +13,10 @@ export const TimerContainer = styled.div`
   position: relative;
   box-shadow: 12px 6px 25px rgba(19, 21, 38, 0.85),
     -12px -6px 25px rgba(41, 46, 88, 0.85);
+  /* @media (max-width: 412px) {
+    height: 200px;
+    width: 200px;
+  } */
   p {
     font-size: 12rem;
     font-weight: bold;

@@ -1,5 +1,9 @@
-import React from "react";
-
+import SettingsIcon from "../../icons/SettingsIcon";
+import { Button } from "./style";
 export default function SettingsButton({ ...props }) {
-  return <button {...props}>settings</button>;
+  return (
+    <Button {...props}>
+      <SettingsIcon />
+    </Button>
+  );
 }
