@@ -14,7 +14,7 @@ export default function CircularProgressBar(props) {
 
   return (
     <CircularProgressBarContainer selectedColor={selectedColor}>
-      <svg width={props.sqSize} height={props.sqSize} viewBox={viewBox}>
+      <svg width={props.width} height={props.sqSize} viewBox={viewBox}>
         <circle
           className="circle-background"
           cx={props.sqSize / 2}

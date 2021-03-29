@@ -49,6 +49,10 @@ table {
 html{
   font-size:10px;
   font-family: "Sofia Pro Soft";
+	 @media (max-width: 412px) {
+    font-size:7px;
+    width: 200px;
+  }
 }
 
 `;
