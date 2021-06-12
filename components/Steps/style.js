@@ -11,6 +11,7 @@ export const StepsContainer = styled.div`
 
 export const Step = styled.button`
   outline: none;
+  font-family: ${(p) => p.theme.fontPrimary[p.selectedFont]};
   padding: 1.5rem 2.8rem;
   background-color: ${(p) =>
     p.active ? p.theme.colorPrimary[p.selectedColor] : p.theme.bgDark};

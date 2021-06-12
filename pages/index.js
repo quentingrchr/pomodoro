@@ -8,12 +8,13 @@ import GlobalStyle from "../style/global-style";
 import Timer from "../components/Timer";
 import Steps from "../components/Steps";
 import Modal from "../components/Modal";
-
-import data from "../data/test.json";
-import usePomodero from "../hooks/usePomodoro";
 import SettingsButton from "../components/SettingsButton";
 import SettingsWindow from "../components/SettingsWindow";
-import { SelectedColorContext } from "../context/selectedColorContext";
+
+import data from "../data/data.json";
+import usePomodero from "../hooks/usePomodoro";
+import { SelectedFontContext } from "../context/selectedFontContext";
+import { DurationsContext } from "../context/durationsContext";
 
 const Main = styled.main`
   background-color: ${(p) => p.theme.bg};
@@ -37,15 +38,16 @@ const Main = styled.main`
 export default function Home() {
   // Pomodoro
   const [state, onEnd] = usePomodero();
-  const [timer, setTimer] = useState(data.steps_data[state].duration);
+  const [durations, setDurations] = useContext(DurationsContext);
+  const [timer, setTimer] = useState(durations[state]);
 
+  const [selectedFont, setSelectedFont] = useContext(SelectedFontContext);
   //Popin
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   useEffect(() => {
-    console.log(state);
-    setTimer(data.steps_data[state].duration);
-  }, [state]);
+    setTimer(durations[state]);
+  }, [state, durations]);
 
   const toggleSettings = () => {
     setIsSettingsOpen(!isSettingsOpen);
@@ -65,9 +67,13 @@ export default function Home() {
           href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet"
+        />
         <title>Pomodoro App</title>
       </Head>
-      <Main selectedFont={0}>
+      <Main selectedFont={selectedFont}>
         <GlobalStyle />
         <h1>pomodoro</h1>
         <Steps steps={data.steps_data} current={state} />

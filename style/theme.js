@@ -4,7 +4,7 @@ export const primaryColors = {
 };
 
 export const primaryFonts = {
-  name: ["Sofia Pro Soft", "Roboto Mono", "Kanit"],
+  name: ["Sofia Pro Soft", "Poppins", "Kanit"],
 };
 
 const base = {
@@ -19,6 +19,6 @@ const base = {
 export const darkTheme = {
   ...base,
   colorPrimary: primaryColors.hex,
-  fontPrimary: ["Sofia Pro Soft"],
+  fontPrimary: [...primaryFonts.name],
   fontSecondary: ["sofia-pro"],
 };
