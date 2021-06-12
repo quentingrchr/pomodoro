@@ -28,6 +28,7 @@ export default function Timer({
       <CircularProgressBar
         strokeWidth="15"
         sqSize="400"
+        width="40rem"
         percentage={getProgressPercentage(
           duration,
           duration - (minutes * 60 + seconds),

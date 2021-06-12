@@ -34,10 +34,7 @@ export default function SettingsWindow({ toggle }) {
     font: selectedFont, // number
   });
 
-  useEffect(() => {
-    console.log({ selectedColor }, "settings update");
-    console.log({ values });
-  }, [selectedColor, selectedFont, durations]);
+  useEffect(() => {}, [selectedColor, selectedFont, durations]);
 
   const handleSubmit = (e) => {
     // submit the local form values to the global state
@@ -66,7 +63,6 @@ export default function SettingsWindow({ toggle }) {
 
   const handleChangeDurations = (value, i) => {
     updateValues("durations", (oldDuration) => {
-      console.log(oldDuration);
       let newDuration = [...oldDuration];
       newDuration[i] = value;
       return newDuration;
@@ -94,7 +90,7 @@ export default function SettingsWindow({ toggle }) {
                   onChange={(value) => {
                     handleChangeDurations(value, i);
                   }}
-                  defaultValue={duration}
+                  defaultValue={parseFloat(duration)}
                 />
               </TimeInputWrapper>
             );
